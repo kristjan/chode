@@ -1,7 +1,8 @@
 var express = require('express')
   , routes = require('./routes')
 
-var app = module.exports = express.createServer();
+var app = module.exports = express.createServer()
+  , io = require('socket.io').listen(app);
 
 app.configure(function(){
   app.set('views', __dirname + '/views');
@@ -22,6 +23,16 @@ app.configure('production', function(){
 });
 
 app.get('/', routes.index);
+
+io.sockets.on('connection', function(socket) {
+  socket.on('set nickname', function(nickname) {
+    socket.set('nickname', nickname);
+  });
+
+  socket.on('send message', function(message) {
+    socket.broadcast.emit('message', message);
+  });
+});
 
 app.listen(3000);
 console.log("Express server listening on port %d in %s mode",

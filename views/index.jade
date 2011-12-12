@@ -1,2 +1,7 @@
-h1= title
-p Welcome to #{title}
+p Welcome to Chode, a <b>ch</b>at server in n<b>ode</b>.
+form#join
+  label(for="nickname") And you are?
+  input#nickname(name="nickname", type="text", placeholder="Pick a nick")
+  input(type="submit", value="Go")
+
+script(src="/javascripts/chode.js")
