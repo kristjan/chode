@@ -20,6 +20,7 @@ Chode = (function() {
   function sendMessage(evt) {
     evt.preventDefault();
     socket.emit('send message', $('#message').val());
+    $('#message').val('');
   }
 
   function receiveMessage(data) {
