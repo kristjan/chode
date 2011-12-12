@@ -1,7 +1,14 @@
 p Welcome to Chode, a <b>ch</b>at server in n<b>ode</b>.
-form#join
+form#join_chat
   label(for="nickname") And you are?
   input#nickname(name="nickname", type="text", placeholder="Pick a nick")
   input(type="submit", value="Go")
+
+ul#chat.chat
+
+form#send_message.send_message
+  input#message(name="message", type="text", placeholder="Say something...",
+                disabled="true")
+  input(type="submit", value="Send", disabled="true")
 
 script(src="/javascripts/chode.js")

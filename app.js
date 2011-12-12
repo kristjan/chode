@@ -30,7 +30,14 @@ io.sockets.on('connection', function(socket) {
   });
 
   socket.on('send message', function(message) {
-    socket.broadcast.emit('message', message);
+    socket.get('nickname', function(err, nickname) {
+      var data = {
+        author: nickname,
+        message: message
+      };
+      socket.broadcast.emit('receive message', data);
+      socket.emit('receive message', data);
+    });
   });
 });
 

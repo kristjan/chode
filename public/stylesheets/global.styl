@@ -9,3 +9,48 @@ input[type=text]
   margin-right: 5px
   padding: 3px
   font-size: 14px
+
+.chat
+  width: 600px
+  height: 400px
+  margin: 20px 0 10px
+  padding: 3px
+  background-color: #FAFAFA
+  overflow-y: scroll
+
+  li
+    width: 100%
+
+  span
+    float: left
+    width: 50px
+    margin: 5px
+    font-weight: bold
+    text-transform: uppercase
+    text-overflow: ellipsis
+
+  p
+    margin: 5px 5px 5px 75px
+    padding-left: 5px
+    border-left: 1px solid #EEE
+
+.send_message
+  input[type=text]
+    width: 550px
+
+.clearfix:after
+  content: "."
+  display: block
+  clear: both
+  visibility: hidden
+  line-height: 0
+  height: 0
+
+.clearfix
+  display: inline-block
+
+html[xmlns] .clearfix
+  display: block
+
+* html .clearfix
+  height: 1%
